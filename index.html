@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wanade Botman - Front-End Developer Portfolio">
+    <title>Wanade Botman | Front-End Developer</title>
+    
+    <!-- Unicons CSS -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Particle Canvas Background -->
+    <canvas id="particleCanvas" class="particle-canvas"></canvas>
+
+    <!-- Animated Background -->
+    <div class="animated-bg">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">
+                <span class="logo-text">WB</span>
+            </a>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">
+                        <i class="uil uil-estate"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">
+                        <i class="uil uil-user"></i>
+                        <span>About</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#projects" class="nav-link">
+                        <i class="uil uil-briefcase-alt"></i>
+                        <span>Projects</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#skills" class="nav-link">
+                        <i class="uil uil-constructor"></i>
+                        <span>Skills</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#services" class="nav-link">
+                        <i class="uil uil-server"></i>
+                        <span>Services</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">
+                        <i class="uil uil-envelope"></i>
+                        <span>Contact</span>
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Theme Toggle -->
+            <div class="theme-toggle" id="themeToggle">
+                <i class="uil uil-sun theme-icon"></i>
+            </div>
+
+            <div class="nav-toggle" id="navToggle">
+                <i class="uil uil-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        Hi, I'm <span class="gradient-text">Wanade Botman</span>
+                    </h1>
+                    <div class="hero-subtitle">
+                        <span class="typing-text" id="typingText"></span>
+                        <span class="cursor">|</span>
+                    </div>
+                    
+                    <p class="hero-description">
+                        Transforming ideas into elegant, high-performance web experiences. 
+                        I craft pixel-perfect interfaces with modern technologies that 
+                        captivate users and elevate brands.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary">
+                            <i class="uil uil-briefcase-alt"></i>
+                            View My Work
+                        </a>
+                        <a href="#contact" class="btn btn-secondary">
+                            <i class="uil uil-message"></i>
+                            Let's Talk
+                        </a>
+                    </div>
+                    <div class="hero-social">
+                        <a href="https://github.com/WanadeBotman" target="_blank" class="social-icon" title="GitHub">
+                            <i class="uil uil-github-alt"></i>
+                        </a>
+                        <a href="https://instagram.com/sharkcxde_" target="_blank" class="social-icon" title="Instagram">
+                            <i class="uil uil-instagram"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/https://www.linkedin.com/in/wanade-botman/" target="_blank" class="social-icon" title="LinkedIn">
+                            <i class="uil uil-linkedin-alt"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="image-wrapper">
+                        <div class="image-border"></div>
+                        <!-- 3D Canvas Container -->
+                        <div class="canvas-container" id="canvasContainer"></div>
+                    </div>
+                    <!-- Floating Tech Icons -->
+                    <div class="floating-icons">
+                        <div class="tech-icon" style="--delay: 0s; --duration: 20s;">
+                            <i class="uil uil-react"></i>
+                        </div>
+                        <div class="tech-icon" style="--delay: 2s; --duration: 18s;">
+                            <i class="uil uil-java-script"></i>
+                        </div>
+                        <div class="tech-icon" style="--delay: 4s; --duration: 22s;">
+                            <i class="uil uil-html5-alt"></i>
+                        </div>
+                        <div class="tech-icon" style="--delay: 6s; --duration: 19s;">
+                            <i class="uil uil-css3-simple"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="uil uil-mouse-alt"></i>
+            <span>Scroll Down</span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Get To Know</span>
+                <h2 class="section-title">About Me</h2>
+                <p class="section-description">My journey and expertise</p>
+            </div>
+
+            <div class="about-content">
+                <div class="about-cards">
+                    <div class="info-card">
+                        <i class="uil uil-award"></i>
+                        <h3>Experience</h3>
+                        <p>IT Diploma</p>
+                        <span>Software Development</span>
+                    </div>
+                    <div class="info-card">
+                        <i class="uil uil-briefcase-alt"></i>
+                        <h3>Completed</h3>
+                        <p>20+ Projects</p>
+                        <span>Diverse Portfolio</span>
+                    </div>
+                    <div class="info-card">
+                        <i class="uil uil-headphones-alt"></i>
+                        <h3>Support</h3>
+                        <p>24/7 Available</p>
+                        <span>Client First</span>
+                    </div>
+                </div>
+
+                <div class="about-text">
+                    <p>
+                        I'm a passionate front-end developer with a strong foundation in IT and 
+                        software development. My journey began with a fascination for how 
+                        beautiful interfaces can transform user experiences.
+                    </p>
+                    <p>
+                        With expertise in modern JavaScript frameworks, responsive design, and 
+                        UI/UX principles, I create web applications that are not only visually 
+                        stunning but also performant and accessible. Every line of code I write 
+                        is crafted with attention to detail and a commitment to excellence.
+                    </p>
+                    <p>
+                        I believe in continuous learning and staying ahead of industry trends. 
+                        My adaptable mindset allows me to tackle complex challenges and deliver 
+                        solutions that exceed expectations.
+                    </p>
+                    <a href="#contact" class="btn btn-outline">
+                        <i class="uil uil-message"></i>
+                        Get In Touch
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">My Recent Work</span>
+                <h2 class="section-title">Projects</h2>
+                <p class="section-description">Showcasing creativity and technical excellence</p>
+            </div>
+
+            <!-- Project Controls -->
+            <div class="project-controls">
+                <div class="project-filters">
+                    <button class="filter-btn active" data-filter="all">
+                        <i class="uil uil-apps"></i> All
+                    </button>
+                    <button class="filter-btn" data-filter="javascript">
+                        <i class="uil uil-java-script"></i> JavaScript
+                    </button>
+                    <button class="filter-btn" data-filter="html">
+                        <i class="uil uil-html5"></i> HTML/CSS
+                    </button>
+                </div>
+                <div class="project-search">
+                    <i class="uil uil-search"></i>
+                    <input type="text" id="projectSearch" placeholder="Search projects...">
+                </div>
+                <div class="view-toggle">
+                    <button class="view-btn active" data-view="grid">
+                        <i class="uil uil-apps"></i>
+                    </button>
+                    <button class="view-btn" data-view="list">
+                        <i class="uil uil-list-ul"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- GitHub Username Input (Hidden after first load) -->
+            <div class="github-input-wrapper" id="githubInputWrapper">
+                <div class="github-input-container">
+                    <i class="uil uil-github-alt"></i>
+                    <input 
+                        type="text" 
+                        id="githubUsername" 
+                        placeholder="Enter your GitHub username"
+                        value="wanadebotman"
+                    >
+                    <button id="loadGithubBtn" class="btn btn-primary">
+                        <i class="uil uil-arrow-right"></i>
+                        Load Projects
+                    </button>
+                </div>
+            </div>
+
+            <!-- Loading State -->
+            <div class="loading-state" id="loadingState" style="display: none;">
+                <div class="loader"></div>
+                <p>Fetching projects from GitHub...</p>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="projects-grid grid-view" id="projectsGrid">
+                <!-- Projects will be dynamically loaded here -->
+            </div>
+
+            <!-- Empty State -->
+            <div class="empty-state" id="emptyState" style="display: none;">
+                <i class="uil uil-exclamation-triangle"></i>
+                <h3>No Projects Found</h3>
+                <p>Unable to load projects. Please check the GitHub username and try again.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">My Expertise</span>
+                <h2 class="section-title">Skills</h2>
+                <p class="section-description">Technologies I work with</p>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="uil uil-react"></i>
+                    </div>
+                    <h3>React & Next.js</h3>
+                    <p>Building scalable SPAs and SSR applications with modern React ecosystem</p>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 90%;"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="uil uil-java-script"></i>
+                    </div>
+                    <h3>JavaScript ES6+</h3>
+                    <p>Advanced JavaScript with async/await, destructuring, and modern syntax</p>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 95%;"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="uil uil-palette"></i>
+                    </div>
+                    <h3>CSS & Tailwind</h3>
+                    <p>Responsive designs with CSS Grid, Flexbox, and utility-first frameworks</p>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 92%;"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="uil uil-desktop"></i>
+                    </div>
+                    <h3>UI/UX Design</h3>
+                    <p>Creating intuitive interfaces with strong attention to user experience</p>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 85%;"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="uil uil-mobile-android"></i>
+                    </div>
+                    <h3>Responsive Design</h3>
+                    <p>Mobile-first approach ensuring perfect display across all devices</p>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 93%;"></div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="uil uil-github-alt"></i>
+                    </div>
+                    <h3>Git & GitHub</h3>
+                    <p>Version control, collaborative workflows, and CI/CD best practices</p>
+                    <div class="skill-bar">
+                        <div class="skill-progress" style="width: 88%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">What I Offer</span>
+                <h2 class="section-title">Services</h2>
+                <p class="section-description">Professional solutions for your business</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="uil uil-web-grid"></i>
+                    </div>
+                    <h3>Custom Web Development</h3>
+                    <p>
+                        Tailored websites built from scratch to match your brand identity and 
+                        business goals. From concept to deployment, I ensure every detail is perfect.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="uil uil-check"></i> Responsive Design</li>
+                        <li><i class="uil uil-check"></i> SEO Optimized</li>
+                        <li><i class="uil uil-check"></i> Fast Loading</li>
+                    </ul>
+                </div>
+
+                <div class="service-card featured">
+                    <div class="featured-badge">Popular</div>
+                    <div class="service-icon">
+                        <i class="uil uil-rocket"></i>
+                    </div>
+                    <h3>Front-End Development</h3>
+                    <p>
+                        Transform designs into pixel-perfect, interactive experiences using modern 
+                        frameworks. Clean code, best practices, and maintainable architecture.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="uil uil-check"></i> React/Next.js Apps</li>
+                        <li><i class="uil uil-check"></i> Component Libraries</li>
+                        <li><i class="uil uil-check"></i> State Management</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="uil uil-refresh"></i>
+                    </div>
+                    <h3>Website Redesign</h3>
+                    <p>
+                        Modernize your existing website with fresh UI/UX, improved performance, 
+                        and contemporary design trends while maintaining your brand essence.
+                    </p>
+                    <ul class="service-features">
+                        <li><i class="uil uil-check"></i> UI/UX Audit</li>
+                        <li><i class="uil uil-check"></i> Performance Boost</li>
+                        <li><i class="uil uil-check"></i> Modern Stack</li>
+                    </ul>
+                </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Let's Connect</span>
+                <h2 class="section-title">Contact Me</h2>
+                <p class="section-description">Ready to start your project?</p>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Let's work together</h3>
+                    <p>
+                        I'm always interested in hearing about new projects and opportunities. 
+                        Whether you have a question or just want to say hi, feel free to reach out!
+                    </p>
+
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="uil uil-envelope"></i>
+                            </div>
+                            <div class="method-info">
+                                <h4>Email</h4>
+                                <a href="mailto:wanade@example.com">botmanwanade14@gmail.com</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="uil uil-phone"></i>
+                            </div>
+                            <div class="method-info">
+                                <h4>Phone</h4>
+                                <a href="tel:+27123456789">+27 62 220 6214</a>
+                            </div>
+                        </div>
+
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="uil uil-map-marker"></i>
+                            </div>
+                            <div class="method-info">
+                                <h4>Location</h4>
+                                <p>Johannesburg, South Africa</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="https://github.com/WanadeBotman" target="_blank" class="social-link">
+                            <i class="uil uil-github-alt"></i>
+                        </a>
+                        <a href="https://instagram.com/sharkcxde_" target="_blank" class="social-link">
+                            <i class="uil uil-instagram"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/wanadebotman" target="_blank" class="social-link">
+                            <i class="uil uil-linkedin-alt"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" id="contactForm">
+                        <div class="success-message" id="successMessage">
+                            <i class="uil uil-check-circle"></i>
+                            <p>Thank you! Your message has been sent successfully.</p>
+                        </div>
+
+                        <div class="error-message-box" id="errorMessage" style="display: none;">
+                            <i class="uil uil-exclamation-triangle"></i>
+                            <p>Oops! Something went wrong. Please try again.</p>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">
+                                    <i class="uil uil-user"></i>
+                                    Full Name
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="name" 
+                                    name="from_name" 
+                                    placeholder="John Doe"
+                                    required
+                                >
+                                <span class="error-message">Please enter your name</span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">
+                                    <i class="uil uil-envelope"></i>
+                                    Email Address
+                                </label>
+                                <input 
+                                    type="email" 
+                                    id="email" 
+                                    name="reply_to" 
+                                    placeholder="john@example.com"
+                                    required
+                                >
+                                <span class="error-message">Please enter a valid email</span>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subject">
+                                <i class="uil uil-subject"></i>
+                                Subject
+                            </label>
+                            <input 
+                                type="text" 
+                                id="subject" 
+                                name="subject" 
+                                placeholder="How can I help you?"
+                                required
+                            >
+                            <span class="error-message">Please enter a subject</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">
+                                <i class="uil uil-message"></i>
+                                Message
+                            </label>
+                            <textarea 
+                                id="message" 
+                                name="message" 
+                                rows="6"
+                                placeholder="Tell me about your project..."
+                                required
+                            ></textarea>
+                            <span class="error-message">Please enter your message</span>
+                            <div class="char-counter">
+                                <span id="charCount">0</span> / 500 characters
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block" id="submitBtn">
+                            <i class="uil uil-message"></i>
+                            <span>Send Message</span>
+                            <div class="btn-loader" style="display: none;"></div>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Wanade Botman</h3>
+                    <p>Front-End Developer crafting exceptional digital experiences</p>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">Web Development</a></li>
+                        <li><a href="#services">UI/UX Design</a></li>
+                        <li><a href="#services">Consulting</a></li>
+                        <li><a href="#services">Maintenance</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-social">
+                    <h4>Follow Me</h4>
+                    <div class="footer-social-links">
+                        <a href="https://github.com/WanadeBotman" target="_blank" title="GitHub">
+                            <i class="uil uil-github-alt"></i>
+                        </a>
+                        <a href="https://instagram.com/sharkcxde_" target="_blank" title="Instagram">
+                            <i class="uil uil-instagram"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/www.linkedin.com/in/wanade-botman-5524b4308" target="_blank" title="LinkedIn">
+                            <i class="uil uil-linkedin-alt"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Wanade Botman. All rights reserved.</p>
+                <p>Designed & Built with <i class="uil uil-heart"></i> by sharkcxde</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop">
+        <i class="uil uil-arrow-up"></i>
+    </button>
+
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>
