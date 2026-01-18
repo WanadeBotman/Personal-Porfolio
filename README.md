@@ -8,7 +8,7 @@ A high-performance, interactive portfolio website designed to showcase modern we
 ## 🔗 Live Demo
 
 Check out the live version of this project here:
-**[View Live Demo](https://www.google.com/search?q=https://wanadebotman.github.io/)**
+**[View Live Demo](https://wanadebotman.github.io/Personal-Porfolio/)**
 
 ## ✨ Key Features
 
